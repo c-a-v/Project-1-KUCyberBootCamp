@@ -8,10 +8,10 @@ The files in this repository were used to configure the network depicted below.
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above.
 Alternatively, select portions of the playbook files may be used to install only certain pieces of it, such as Filebeat.
 
-  elkplaybook.yaml
-  filebeatplaybook.yml
-  metricbeat-playbook.yml
-  config.web.vm.docker.playbook.yml
+elkplaybook.yaml  
+filebeatplaybook.yml  
+metricbeat-playbook.yml  
+config.web.vm.docker.playbook.yml  
 
 This document contains the following details:
 - Description of the Topology
@@ -47,7 +47,7 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:  
 70.178.162.229 (my workstation)
 5061 Kibana Port
 
@@ -56,14 +56,9 @@ machines within the network can only be gained via the jump box.
 
 A summary of the access policies in place can be found in the table below.
 
-###### NOTE FOR TEACHER GRADING ###### *DELETE LATER*
-The table came with the first answer by default (jump box). It says yes/no. Was it asking us to put the correct answer or was yes/no the answer itself?
-Because while this isn't publicly accessible, in a way it is because it can be accessed with the proper RSA key, whereas the other VM's can only be accessed
-via the jump box. I would greatly appreciate a response in the comments, if possible, or I can get an answer during office hours :). Thanks!
-
 | Name                 	| Publicly Accessible 	| Allowed IP Addresses              	|
 |----------------------	|---------------------	|-----------------------------------	|
-| Jump Box             	| Yes/No              	| 10.0.0.1  10.0.0.2                	|
+| Jump Box             	| No                  	| 10.0.0.1  10.0.0.2                	|
 | Web-1                	| No                  	| 10.0.0.4                          	|
 | Web-2                	| No                  	| 10.0.0.4                          	|
 | red-team-projectVM-1 	| Yes                 	| 70.178.162.229 , 5061 Kibana Port 	|
@@ -78,30 +73,30 @@ room for application resource.
 
 The playbook implements the following tasks:
 
-- Install docker.io
--- Install pip3
---- Install Docker python module
----- Increase virtual memory
------ Download and launch a docker
+-> Install docker.io  
+--> Install pip3  
+---> Install Docker python module  
+----> Increase virtual memory  
+-----> Download and launch a docker  
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 (Images/docker-success.png)
 
 ### Target Machines & Beats
-This ELK server is configured to monitor the following machines:
-Web-1 | 10.0.0.5
-Web-2 | 10.0.0.6
+This ELK server is configured to monitor the following machines:  
+Web-1 | 10.0.0.5  
+Web-2 | 10.0.0.6  
 
-We have installed the following Beats on these machines:
+We have installed the following Beats on these machines:  
 -Microbeats
 
-These Beats allow us to collect the following information from each machine:
+These Beats allow us to collect the following information from each machine:  
 Metricbeat - collects our virtual machine's metrics e.g. 'uptime'
 Filebeat - collects data about the file system
 
 ### Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned. 
 
 SSH into the control node and follow the steps below:
 
